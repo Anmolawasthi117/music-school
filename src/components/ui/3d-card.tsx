@@ -116,13 +116,15 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
+  [key: string]: any;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
   useEffect(() => {
     handleAnimations();
-  }, [isMouseEntered]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMouseEntered,]);
 
   const handleAnimations = () => {
     if (!ref.current) return;
